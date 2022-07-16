@@ -71,6 +71,7 @@ class App extends Component{
         input: this.state.input
       })
     })
+    .then(response => response.json())
     .then(response=>{
       if(response){
         fetch('https://tranquil-sea-42518.herokuapp.com/image', {
@@ -80,7 +81,7 @@ class App extends Component{
             id: this.state.user.id
           })
         })
-        .then(respose => respose.json())
+        .then(response => response.json())
         .then(count => {
           this.setState(Object.assign(this.state.user, {entries: count}))
         })
